@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
+import Layout from "./Layout";
 
 function App() {
   return (
     <>
-      <div className="text-red-700">ddd</div>
-      <Outlet />
+      <Layout>
+        <Outlet />
+      </Layout>
     </>
   );
 }
