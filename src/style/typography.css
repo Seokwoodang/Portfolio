@@ -1,4 +1,4 @@
-/* .h1 {
+.h1 {
   @apply font-pretendard font-semibold text-h1;
 }
 
@@ -64,4 +64,4 @@
 
 .d2 {
   @apply font-pretendard font-medium text-d2;
-} */
+}
