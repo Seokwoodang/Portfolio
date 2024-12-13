@@ -52,22 +52,25 @@ export default function Skills() {
                   {category.category}
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
-                  {category.skills.map((skill) => (
-                    <motion.div
-                      key={skill.name}
-                      variants={itemVariants}
-                      whileHover={{ scale: 1.05 }}
-                      className="flex flex-col items-center gap-2"
-                    >
-                      <skill.icon
-                        className="w-8 h-8 md:w-12 md:h-12 mb-2"
-                        style={{ color: skill.color }}
-                      />
-                      <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center">
-                        {skill.name}
-                      </span>
-                    </motion.div>
-                  ))}
+                  {category.skills.map((skill) => {
+                    const IconComponent = skill.icon as React.ElementType;
+                    return (
+                      <motion.div
+                        key={skill.name}
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.05 }}
+                        className="flex flex-col items-center gap-2"
+                      >
+                        <IconComponent
+                          className="w-8 h-8 md:w-12 md:h-12 mb-2"
+                          style={{ color: skill.color }}
+                        />
+                        <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center">
+                          {skill.name}
+                        </span>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}
