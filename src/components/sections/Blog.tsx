@@ -3,18 +3,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { RefreshCcw, Calendar } from "lucide-react";
-import Pagination from "../ui/Pagination";
-
-interface BlogPost {
-  title: string;
-  description?: string;
-  link: string;
-  image_url?: string;
-  published_at?: string;
-  category?: string;
-}
-
-const ITEMS_PER_PAGE = 15;
+import Pagination from "@/components/ui/Pagination";
+import { BlogPost, ITEMS_PER_PAGE, formatDate } from "@/config/data/blog";
 
 export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -68,39 +58,24 @@ export default function Blog() {
     }
   };
 
-  // 날짜 포맷팅 함수
-  const formatDate = (dateString?: string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    return date.toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [currentPage]);
-
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section className="py-12 md:py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4 max-w-5xl">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-bold">Blog Posts</h2>
+        <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
+          <h2 className="text-2xl md:text-3xl font-bold">Blog Posts</h2>
           <button
             onClick={refreshPosts}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-800 shadow hover:shadow-md transition-shadow"
             disabled={refreshing}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-gray-800 shadow hover:shadow-md transition-shadow disabled:opacity-50"
           >
             <RefreshCcw
               className={`w-4 h-4 ${refreshing ? "animate-spin" : ""}`}
             />
-            <span>새로고침</span>
+            <span className="text-sm md:text-base">새로고침</span>
           </button>
         </div>
 
@@ -124,7 +99,7 @@ export default function Blog() {
           </div>
         ) : (
           <>
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
               <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                 {currentPosts.map((post, index) => (
                   <motion.li
@@ -132,26 +107,32 @@ export default function Blog() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                    className="group hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                   >
                     <a
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block p-6"
+                      className="block p-4 md:p-6"
                     >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div className="flex-1 min-w-0">
+                          <h3
+                            className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-2 
+                                       group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+                          >
                             {post.title}
                           </h3>
-                          <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
                             <div className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
                               <span>{formatDate(post.published_at)}</span>
                             </div>
                             {post.category && (
-                              <span className="px-2.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300">
+                              <span
+                                className="px-2.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-600 
+                                           text-gray-600 dark:text-gray-300 text-xs md:text-sm"
+                              >
                                 {post.category}
                               </span>
                             )}
@@ -164,7 +145,6 @@ export default function Blog() {
               </ul>
             </div>
 
-            {/* Pagination */}
             <div className="mt-8">
               <Pagination
                 currentPage={currentPage}
