@@ -81,6 +81,7 @@ export default function ProjectMediaSlider({
                   className="w-full h-full object-contain"
                   controls={false}
                   autoPlay={true}
+                  loop
                   onEnded={() => setIsPlaying(false)}
                 >
                   <source src={currentMedia.url} type="video/mp4" />
