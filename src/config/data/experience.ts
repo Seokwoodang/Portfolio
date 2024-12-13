@@ -60,25 +60,25 @@ export const projects: Project[] = [
       "Atomic Pattern 적용하여 작업 안정성 및 생산성 개선",
       "S3 Presigned URL을 통한 이미지 업로드 구현",
     ],
-    link: "https://proctoringx.com",
+    // link: "https://proctoringx.com",
     details:
       "ProctoringX는 온라인 시험 감독 시스템으로, 학습자들의 공정한 평가를 위한 솔루션입니다. LMS 서비스와의 통합을 통해 더욱 효율적인 온라인 시험 환경을 제공합니다.",
     media: [
       {
         type: "image",
-        url: "/projects/proctorx1.png",
+        url: "/projects/proctoringX/proctorx1.png",
       },
       {
         type: "image",
-        url: "/projects/proctorx2.png",
+        url: "/projects/proctoringX/proctorx2.png",
       },
       {
         type: "image",
-        url: "/projects/proctorx3.png",
+        url: "/projects/proctoringX/proctorx3.png",
       },
       {
         type: "image",
-        url: "/projects/proctorx4.png",
+        url: "/projects/proctoringX/proctorx4.png",
       },
     ],
   },
@@ -99,16 +99,16 @@ export const projects: Project[] = [
     media: [
       {
         type: "video",
-        url: "/projects/proctor1.mp4",
+        url: "/projects/proctormatic/proctor1.mp4",
         // thumbnail: "/projects/thumbnail.png",
       },
       {
         type: "video",
-        url: "/projects/proctor2.mp4",
+        url: "/projects/proctormatic/proctor2.mp4",
       },
       {
         type: "video",
-        url: "/projects/proctor3.mp4",
+        url: "/projects/proctormatic/proctor3.mp4",
       },
     ],
   },
@@ -125,17 +125,20 @@ export const projects: Project[] = [
     ],
     media: [
       {
-        type: "video",
-        url: "/projects/demo.mp4",
-        thumbnail: "/projects/thumbnail.png",
+        type: "image",
+        url: "/projects/backoffice/back1.png",
       },
       {
         type: "image",
-        url: "/projects/dashboard.png",
+        url: "/projects/backoffice/back2.png",
       },
       {
         type: "image",
-        url: "/projects/mobile.png",
+        url: "/projects/backoffice/back3.png",
+      },
+      {
+        type: "image",
+        url: "/projects/backoffice/back4.png",
       },
     ],
   },
