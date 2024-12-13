@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Building2, GraduationCap } from "lucide-react";
 import { experiences, projects } from "@/config/data/experience";
+import Link from "next/link";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -85,42 +86,47 @@ export default function Experience() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {projects.map((project, index) => (
-                <motion.div
+                <Link
                   key={index}
-                  variants={itemVariants}
-                  className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 md:p-6 shadow-lg"
+                  href={`/projects/${project.id}`}
+                  className="block"
                 >
-                  <h3 className="text-xl md:text-2xl font-semibold">
-                    {project.name}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm md:text-base">
-                    {project.period}
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 mt-2 text-sm md:text-base">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.techStack.map((tech, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <ul className="mt-4 space-y-2">
-                    {project.achievements.map((achievement, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start text-sm md:text-base"
-                      >
-                        <span className="text-purple-600 mr-2">•</span>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
+                  <motion.div
+                    variants={itemVariants}
+                    className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 md:p-6 shadow-lg hover:shadow-xl transition-shadow"
+                  >
+                    <h3 className="text-xl md:text-2xl font-semibold">
+                      {project.name}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm md:text-base">
+                      {project.period}
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 mt-2 text-sm md:text-base">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {project.techStack.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <ul className="mt-4 space-y-2">
+                      {project.achievements.map((achievement, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start text-sm md:text-base"
+                        >
+                          <span className="text-purple-600 mr-2">•</span>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </motion.div>
