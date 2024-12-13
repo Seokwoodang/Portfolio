@@ -5,15 +5,15 @@ import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 px-4">
       <motion.div
-        className="text-center space-y-6"
+        className="text-center space-y-6 max-w-3xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <motion.h1
-          className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600"
+          className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 px-4 md:px-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -22,7 +22,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.h2
-          className="text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+          className="text-xl md:text-4xl text-gray-700 dark:text-gray-300 px-4 md:px-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -31,7 +31,7 @@ export default function Hero() {
         </motion.h2>
 
         <motion.p
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+          className="text-base md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4 md:px-0 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -45,13 +45,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex gap-4 justify-center"
+          className="flex gap-4 justify-center flex-col sm:flex-row px-4 md:px-0"
         >
           <a
             href="https://github.com/Seokwoodang"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors"
+            className="px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors text-sm md:text-base"
           >
             GitHub
           </a>
@@ -59,7 +59,7 @@ export default function Hero() {
             href="http://inblog.ai/luke"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+            className="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors text-sm md:text-base"
           >
             Blog
           </a>
@@ -77,7 +77,7 @@ export default function Hero() {
           repeatType: "reverse",
         }}
       >
-        <ArrowDown className="w-8 h-8 text-gray-600 dark:text-gray-400" />
+        <ArrowDown className="w-6 h-6 md:w-8 md:h-8 text-gray-600 dark:text-gray-400" />
       </motion.div>
     </div>
   );
