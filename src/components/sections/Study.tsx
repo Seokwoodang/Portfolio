@@ -52,7 +52,7 @@ export default function Study() {
               className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors"
             >
               <Github className="w-5 h-5" />
-              <span>GitHub 스터디 저장소 방문하기</span>
+              <span>스터디 GitHub 방문하기</span>
             </a>
           </motion.div>
           <motion.div
