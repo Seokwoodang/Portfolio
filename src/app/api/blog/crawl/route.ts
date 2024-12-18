@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
 import * as puppeteer from "puppeteer";
+import { createServerClient } from "@supabase/ssr";
 
 interface BlogPost {
   title: string;
@@ -108,6 +108,8 @@ async function crawlBlogPosts(): Promise<BlogPost[]> {
 
 async function updateDatabase(posts: BlogPost[]) {
   console.log("Updating database with posts:", posts);
+  // @ts-expect-error: deprecated
+  const supabase = createServerClient();
 
   if (posts.length === 0) {
     console.log("No posts to update");
@@ -153,6 +155,8 @@ async function updateDatabase(posts: BlogPost[]) {
 }
 
 export async function POST() {
+  // @ts-expect-error: deprecated
+  const supabase = createServerClient();
   try {
     // 크롤링 실행
     console.log("Starting crawling process...");
