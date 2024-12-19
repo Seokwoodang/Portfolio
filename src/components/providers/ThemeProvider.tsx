@@ -14,6 +14,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 
+  // 초기 테마 설정에 transition 클래스 제외
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme;
     if (savedTheme) {
@@ -25,6 +26,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setTheme("dark");
       document.documentElement.classList.add("dark");
     }
+
+    // 초기 로드 후 transition 클래스 추가
+    setTimeout(() => {
+      document.documentElement.classList.add("theme-transition");
+    }, 0);
   }, []);
 
   const toggleTheme = () => {

@@ -4,6 +4,9 @@
 
 @layer base {
   :root {
+    --transition-duration: 200ms;
+    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
     /* 라이트 모드 기본 색상 */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -47,12 +50,33 @@
 }
 
 /* 스무스한 다크모드 전환 효과 */
-* {
-  @apply transition-colors duration-200;
+:root {
+  color-scheme: light;
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+.dark {
+  color-scheme: dark;
+  transition: all var(--transition-duration) var(--transition-timing);
+}
+
+html,
+body {
+  transition: background-color var(--transition-duration)
+      var(--transition-timing),
+    color var(--transition-duration) var(--transition-timing);
 }
 
 body {
   @apply bg-background text-foreground;
+}
+
+/* transition이 필요한 컴포넌트들을 위한 클래스 */
+.theme-transition {
+  transition: background-color var(--transition-duration)
+      var(--transition-timing),
+    color var(--transition-duration) var(--transition-timing),
+    border-color var(--transition-duration) var(--transition-timing);
 }
 
 /* 스크롤바 스타일링 */
