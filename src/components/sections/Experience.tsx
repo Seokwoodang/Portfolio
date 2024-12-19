@@ -89,26 +89,49 @@ export default function Experience() {
                 <Link
                   key={index}
                   href={`/projects/${project.id}`}
-                  className="block"
+                  className="block group"
                 >
                   <motion.div
                     variants={itemVariants}
-                    className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 md:p-6 shadow-lg hover:shadow-xl transition-shadow"
+                    whileHover={{
+                      y: -8,
+                      transition: { duration: 0.2 },
+                    }}
+                    className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 md:p-6 
+                     shadow-lg transition-all duration-300 ease-in-out
+                     group-hover:shadow-2xl
+                     group-hover:bg-gray-100 dark:group-hover:bg-gray-700
+                     relative"
                   >
-                    <h3 className="text-xl md:text-2xl font-semibold">
+                    <div
+                      className="absolute inset-0 bg-purple-600/0 
+                          group-hover:bg-purple-600/5 dark:group-hover:bg-purple-600/10 
+                          rounded-lg transition-colors duration-300"
+                    />
+                    <h3
+                      className="text-xl md:text-2xl font-semibold 
+                         group-hover:text-purple-600 dark:group-hover:text-purple-400
+                         transition-colors duration-300"
+                    >
                       {project.name}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm md:text-base">
                       {project.period}
                     </p>
-                    <p className="text-gray-700 dark:text-gray-300 mt-2 text-sm md:text-base">
+                    <p
+                      className="text-gray-700 dark:text-gray-300 mt-2 text-sm md:text-base
+                       group-hover:text-gray-800 dark:group-hover:text-gray-200"
+                    >
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mt-4">
                       {project.techStack.map((tech, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm"
+                          className="px-2 py-1 bg-purple-100 dark:bg-purple-900/50 
+                           text-purple-600 dark:text-purple-300 rounded-full 
+                           text-xs md:text-sm
+                           group-hover:bg-purple-200 dark:group-hover:bg-purple-800/60"
                         >
                           {tech}
                         </span>
@@ -120,7 +143,9 @@ export default function Experience() {
                           key={idx}
                           className="flex items-start text-sm md:text-base"
                         >
-                          <span className="text-purple-600 mr-2">•</span>
+                          <span className="text-purple-600 dark:text-purple-400 mr-2">
+                            •
+                          </span>
                           {achievement}
                         </li>
                       ))}
