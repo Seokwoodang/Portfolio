@@ -38,7 +38,11 @@ export const experiences: Experience[] = [
     company: "SPARTA",
     period: "2024.04 - 현재",
     role: "Frontend 강사",
-    projects: ["React와 Next를 통한 웹개발 강의"],
+    projects: [
+      "HTML, CSS, JS, TS, React, Next의 기본 개념, 상태 관리 라이프 사이클 메서드 등의 학습 지원을 위해 일대일 멘토링 및 질의 응답 세션을 통해 학습 목표 설정 및 진도 관리",
+      "수강생 코드 리뷰 및 코드 품질 개선을 위한 피드백",
+      "코드 최적화, 성능 개선 및 리팩토링을 스스로 해낼 수 있도록 지원하고 학습 동기 부여 및 지속적 피드백 제공",
+    ],
   },
 ];
 
