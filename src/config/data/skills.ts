@@ -4,7 +4,6 @@ import {
   SiReact,
   SiNextdotjs,
   SiJest,
-  SiCypress,
   SiStorybook,
   SiReactquery,
   SiRedux,
@@ -43,7 +42,7 @@ export const skillsData: SkillCategory[] = [
     category: "Testing",
     skills: [
       { name: "Jest", icon: SiJest, color: "#C21325" },
-      { name: "Cypress", icon: SiCypress, color: "#17202C" },
+      // { name: "Cypress", icon: SiCypress, color: "#17202C" },
       { name: "Storybook", icon: SiStorybook, color: "#FF4785" },
     ],
   },
@@ -63,6 +62,6 @@ export const skillsData: SkillCategory[] = [
   },
   {
     category: "Cloud",
-    skills: [{ name: "AWS", icon: SiAmazon, color: "#232F3E" }],
+    skills: [{ name: "AWS", icon: SiAmazon, color: "#e87909" }],
   },
 ];
